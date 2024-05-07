@@ -1,3 +1,7 @@
+# Extras
+docker-compose.yml
+
+
 # Logs
 logs
 *.log
