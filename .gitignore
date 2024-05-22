@@ -1,6 +1,7 @@
 # Extras
-docker-compose.yml
-
+node_modules
+.env
+log.txt
 
 # Logs
 logs

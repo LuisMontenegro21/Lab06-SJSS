@@ -1,16 +1,14 @@
-FROM ubuntu:latest
-ENV DEBIAN_FRONTEND=noninteractive
+FROM node:14
 
-RUN apt-get update && \
-    apt-get install -y mysql-server
+# Create directory
+WORKDIR /user/src/app
 
-ENV MYSQL_DATABASE=blog_db 
-ENV MYSQL_USER=mon21699
-ENV MYSQL_PASSWORD=passwordblog2024
-ENV MYSQL_ROOT_PASSWORD=root_password
+COPY package*.json ./
 
-COPY schema.sql /docker-entrypoint-initdb.d/schema.sql
+RUN npm install
 
-EXPOSE 3306
+COPY . .
 
-CMD ["mysqld"]
+EXPOSE 3000
+
+CMD ["npm", "start"]
