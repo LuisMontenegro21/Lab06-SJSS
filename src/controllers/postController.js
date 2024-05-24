@@ -25,7 +25,8 @@ exports.getPostByID = async (req, res) => {
 
 exports.createPost = async (req, res) => {
     try {
-        const newPost = await Post.create(req.body)
+        const { title, content, image_base64} = req.body
+        const newPost = await Post.create([{ title, content, image_base64}])
         res.status(200).json(newPost)
     }
     catch (error) {
@@ -35,7 +36,8 @@ exports.createPost = async (req, res) => {
 
 exports.updatePost = async (req, res) => {
     try{
-        const updatePost = await Post.update(req.params.postId, req.body)
+        const { title, content, image_base64 } = req.body
+        const updatePost = await Post.update(req.params.postId, { title, content, image_base64 })
         if (!updatePost){
             return res.status(404).json({error: 'Post not found'})
         }

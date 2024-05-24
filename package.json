@@ -1,7 +1,7 @@
 {
-  "name": "lab06-sjss",
+  "name": "my-blog",
   "version": "1.0.0",
-  "description": "Create API",
+  "description": "Create API for the blog",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
